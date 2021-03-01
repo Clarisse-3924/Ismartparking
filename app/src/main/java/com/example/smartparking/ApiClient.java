@@ -17,7 +17,7 @@ public class ApiClient {
 
 
       Retrofit retrofit = new Retrofit.Builder()
-              .baseUrl("https://smartparking250.herokuapp.com/api/")
+              .baseUrl("https://smartparking250.herokuapp.com")
               .addConverterFactory(GsonConverterFactory.create())
               .client(okHttpClient)
               .build();
