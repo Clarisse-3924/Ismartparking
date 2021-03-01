@@ -9,8 +9,8 @@ public class ReservationResponse {
     private int duration_in_minutes;
     private int location;
     private int parking_slot_id;
-    private Time Entry_time;
-    private Time Exit_time;
+    private String Entry_time;
+    private String Exit_time;
     private String booking_date;
 
     public int getUser_id() {
@@ -29,11 +29,11 @@ public class ReservationResponse {
         return location;
     }
 
-    public Time getEntry_time() {
+    public String getEntry_time() {
         return Entry_time;
     }
 
-    public Time getExit_time() {
+    public String getExit_time() {
         return Exit_time;
     }
 
@@ -65,11 +65,11 @@ public class ReservationResponse {
         this.parking_slot_id = parking_slot_id;
     }
 
-    public void setEntry_time(Time entry_time) {
+    public void setEntry_time(String entry_time) {
         Entry_time = entry_time;
     }
 
-    public void setExit_time(Time exit_time) {
+    public void setExit_time(String exit_time) {
         Exit_time = exit_time;
     }
 

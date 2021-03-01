@@ -1,6 +1,7 @@
 package com.example.smartparking;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -53,9 +54,11 @@ public class ReservationActivity extends AppCompatActivity {
 
     public ReservationRequest addReservation(){
         ReservationRequest reservationRequest = new ReservationRequest();
+        reservationRequest.setUser_id(1);
+        reservationRequest.setParking_slot_id(1);
         reservationRequest.setBooking_date(entryDate.getText().toString());
-        reservationRequest.setEntry_time(Time.valueOf(entryTime.getText().toString()));
-        reservationRequest.setExit_time(Time.valueOf(exitTime.getText().toString()));
+        reservationRequest.setEntry_time(entryTime.getText().toString());
+        reservationRequest.setExit_time(exitTime.getText().toString());
         reservationRequest.setPlate_No(Integer.parseInt(plateNumber.getText().toString()));
         reservationRequest.setLocation(Integer.parseInt(location.getText().toString()));
         reservationRequest.setDuration_in_minutes(Integer.parseInt(duration.getText().toString()));

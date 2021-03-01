@@ -9,6 +9,6 @@ import retrofit2.http.POST;
 
 public interface ReservationService {
 
-    @POST("admin/djreservation/reservation/")
+    @POST("api/reservation/")
     Call<ReservationResponse> saveReservation(@Body ReservationRequest reservationRequest);
 }
