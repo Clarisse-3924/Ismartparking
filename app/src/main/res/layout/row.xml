@@ -63,8 +63,5 @@
             android:background="@color/white"
             android:text="Book Now" />
 
-
     </RelativeLayout>
-        
-
 </androidx.cardview.widget.CardView>

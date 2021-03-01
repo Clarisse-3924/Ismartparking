@@ -3,6 +3,7 @@ package com.example.smartparking;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,33 +11,36 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.GridView;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
+import com.example.smartparking.services.ApiClient;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
     GridView gridView;
- private List<ImageResponse> imageResponses =new ArrayList<>();
+    Button button2;
+    private List<ImageResponse> imageResponses =new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         gridView =findViewById(R.id.gridview);
+        button2=findViewById(R.id.button2);
         getAllImages();
 
 
     }
     public  void  getAllImages(){
-        Call<List<ImageResponse>>imagesResponse =ApiClient.getInterface().getAllImages();
+        Call<List<ImageResponse>>imagesResponse = ApiClient.getInterface().getAllImages();
         imagesResponse.enqueue(new Callback<List<ImageResponse>>() {
             @Override
             public void onResponse(Call<List<ImageResponse>> call, Response<List<ImageResponse>> response) {

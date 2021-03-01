@@ -1,4 +1,6 @@
-package com.example.smartparking;
+package com.example.smartparking.services;
+
+import com.example.smartparking.ImageResponse;
 
 import java.util.List;
 

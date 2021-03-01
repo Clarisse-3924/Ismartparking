@@ -1,4 +1,4 @@
-package com.example.smartparking;
+package com.example.smartparking.services;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -29,4 +29,13 @@ public class ApiClient {
         return apiInterface;
     }
 
+    public static RegisterService getRegisterService(){
+        RegisterService registerService = getRetrofit().create(RegisterService.class);
+        return registerService;
+    }
+
+    public static ReservationService getReservationService(){
+        ReservationService reservationService = getRetrofit().create(ReservationService.class);
+        return reservationService;
+    }
 }
