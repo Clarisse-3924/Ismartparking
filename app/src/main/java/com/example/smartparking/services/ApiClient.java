@@ -28,9 +28,8 @@ public class ApiClient {
         ApiInterface apiInterface = getRetrofit().create(ApiInterface.class);
         return apiInterface;
     }
-    public  static  UserService getService(){
-        UserService userService= getRetrofit().create(UserService.class);
-        return userService;
-
+    public static RegisterService getRegisterService(){
+        RegisterService registerService = getRetrofit().create(RegisterService.class);
+        return registerService;
     }
 }
