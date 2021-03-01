@@ -17,12 +17,12 @@
           android:layout_height="200dp"
           android:background="@drawable/image">
       </LinearLayout>
-      <LinearLayout
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content">
-      <include  layout="@layout/main_toolbar">
-      </include>
-   </LinearLayout>
+<!--      <LinearLayout-->
+<!--          android:layout_width="match_parent"-->
+<!--          android:layout_height="wrap_content">-->
+<!--      <include  layout="@layout/main_toolbar">-->
+<!--      </include>-->
+<!--   </LinearLayout>-->
       <LinearLayout
           android:layout_width="match_parent"
           android:layout_height="wrap_content">
@@ -32,7 +32,7 @@
              android:horizontalSpacing="4dp"
              android:verticalSpacing="4dp"
              android:layout_margin="1dp"
-             android:numColumns="2"
+             android:numColumns="1"
              android:id="@+id/gridview">
          </GridView>
       </LinearLayout>

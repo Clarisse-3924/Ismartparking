@@ -95,21 +95,21 @@ public class MainActivity extends AppCompatActivity {
             if(convertView==null){
                 convertView=layoutInflater.inflate(R.layout.row,parent,false);
 
-                ImageView imageView = convertView.findViewById(R.id.imageview);
+//                ImageView imageView = convertView.findViewById(R.id.imageview);
                 TextView block=convertView.findViewById(R.id.block);
                TextView location= convertView.findViewById(R.id.location);
-                TextView full= convertView.findViewById(R.id.full);
-                TextView success= convertView.findViewById(R.id.success);
+//                TextView full= convertView.findViewById(R.id.full);
+//                TextView success= convertView.findViewById(R.id.success);
                 TextView slot= convertView.findViewById(R.id.slot);
 
 
                location.setText( "Location"+" "+imageResponseList.get(position).getLocation());
-                full.setText("Is it full?"+" "+imageResponseList.get(position).getIs_block_full());
-                success.setText(" Is it accessible?"+" "+imageResponseList.get(position).getIs_accessible());
+//                full.setText("Is it full?"+" "+imageResponseList.get(position).getIs_block_full());
+//                success.setText(" Is it accessible?"+" "+imageResponseList.get(position).getIs_accessible());
                 slot.setText("Number of Slot:"+" "+imageResponseList.get(position).getNumber_of_slots());
                 block.setText("Block Code:"+" "+imageResponseList.get(position).getBlock_code());
 
-                GlideApp.with(context).load(imageResponseList.get(position).getBlock_photo()).into(imageView);
+//                GlideApp.with(context).load(imageResponseList.get(position).getBlock_photo()).into(imageView);
             }
             return convertView;
         }

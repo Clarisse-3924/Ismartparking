@@ -7,20 +7,35 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#3f221d">
-        <ImageView
-            android:layout_width="150dp"
-            android:layout_height="100dp"
-            android:scaleType="centerCrop"
-            android:id="@+id/imageview"
-            android:layout_marginTop="2dp"/>
+<!--        <ImageView-->
+<!--            android:layout_width="150dp"-->
+<!--            android:layout_height="100dp"-->
+<!--            android:scaleType="centerCrop"-->
+<!--            android:id="@+id/imageview"-->
+<!--            android:layout_marginTop="2dp"/>-->
         <TextView
             android:id="@+id/block"
-            android:layout_below="@+id/imageview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Block"
             android:textColor="@color/white"
             android:layout_marginTop="30dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/slot"
+            android:textColor="@color/white"
+            android:layout_below="@+id/block"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/location"
+            android:textColor="@color/white"
+            android:layout_below="@+id/slot"
+            android:layout_marginTop="20dp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -35,21 +50,19 @@
             android:textColor="@color/white"
             android:layout_below="@+id/full"
             android:layout_marginTop="20dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/slot"
-            android:textColor="@color/white"
-            android:layout_below="@+id/success"
-            android:layout_marginTop="20dp"/>
 
-        <TextView
+        <Button
+            android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/location"
-            android:textColor="@color/white"
-            android:layout_below="@+id/slot"
-            android:layout_marginTop="20dp"/>
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="38dp"
+            android:layout_marginRight="38dp"
+            android:layout_marginTop="40dp"
+            android:background="@color/white"
+            android:text="Book Now" />
+
 
     </RelativeLayout>
         
