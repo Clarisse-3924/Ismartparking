@@ -37,6 +37,8 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.3.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:2.0.4'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
@@ -51,4 +53,24 @@ dependencies {
 
 //    annotationProcessor 'org.parceler:parceler:1.1.12'
   annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.0'
+
+    implementation 'androidx.viewpager2:viewpager2:1.0.0'
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'androidx.recyclerview:recyclerview-selection:1.1.0-rc01'
+
+    //buterknife dependencies
+    implementation 'com.jakewharton:butterknife:10.2.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.0'
+
+    implementation 'com.squareup.okhttp3:okhttp:3.14.6'
+    implementation 'com.squareup.retrofit2:retrofit:2.8.1'
+    implementation 'com.squareup.retrofit2:converter-gson:2.8.1'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.8.0'
+
+    //awesome validation dependency
+    implementation 'com.basgeekball:awesome-validation:4.2'
+    //phonecodepicker
+    implementation 'com.hbb20:ccp:2.4.5'
 }
