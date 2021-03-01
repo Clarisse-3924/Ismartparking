@@ -30,7 +30,7 @@ Animation frombottom,fromtop;
      sub.setOnClickListener(new View.OnClickListener() {
          @Override
          public void onClick(View v) {
-             startActivity(new Intent(Splash.this,MainActivity.class));
+             startActivity(new Intent(Splash.this,RegisterActivity.class));
          }
      });
     }

@@ -1,23 +1,18 @@
 package com.example.smartparking.models;
 
 public class RegisterResponse {
-    private String password;
+    private int id;
     private String username;
-    private  int id;
+    private String first_name;
+    private String last_name;
+    private String password;
 
+    public int getId() {
+        return id;
+    }
 
-    public RegisterResponse(String password, String username, int id) {
-        this.password = password;
-        this.username = username;
+    public void setId(int id) {
         this.id = id;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public String getUsername() {
@@ -28,11 +23,27 @@ public class RegisterResponse {
         this.username = username;
     }
 
-    public int getId() {
-        return id;
+    public String getFirst_name() {
+        return first_name;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setFirst_name(String first_name) {
+        this.first_name = first_name;
+    }
+
+    public String getLast_name() {
+        return last_name;
+    }
+
+    public void setLast_name(String last_name) {
+        this.last_name = last_name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
