@@ -1,5 +1,6 @@
 package com.example.smartparking;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.smartparking.models.ReservationRequest;
 import com.example.smartparking.models.ReservationResponse;
 import com.example.smartparking.services.ApiClient;
+import com.flutterwave.raveandroid.RaveUiManager;
 
 import java.sql.Time;
 
@@ -75,6 +77,35 @@ public class ReservationActivity extends AppCompatActivity {
 
                 if (response.isSuccessful()){
                     Toast.makeText(ReservationActivity.this, "Booking successful", Toast.LENGTH_LONG).show();
+
+                    new RaveUiManager(ReservationActivity.this).setAmount(100)
+                            .setCurrency("RWF")
+                            .setEmail("ubelyse1@gmail.com")
+                            .setfName("Belyse")
+                            .setlName("Uwambayinema")
+                            .setNarration("narration")
+                            .setPublicKey("FLWPUBK-153c54964b77d3382386e19706048494-X")
+                            .setEncryptionKey("1a59522dfb665a5bd9e0c0e2")
+                            .setTxRef("txRef")
+                            .setPhoneNumber("+250787905576", true)
+                            .acceptAccountPayments(false)
+                            .acceptCardPayments(true)
+                            .acceptMpesaPayments(false)
+                            .acceptAchPayments(false)
+                            .acceptGHMobileMoneyPayments(false)
+                            .acceptUgMobileMoneyPayments(false)
+                            .acceptZmMobileMoneyPayments(false)
+                            .acceptRwfMobileMoneyPayments(true)
+                            .acceptSaBankPayments(false)
+                            .acceptUkPayments(false)
+                            .acceptBankTransferPayments(false)
+                            .acceptUssdPayments(false)
+                            .acceptBarterPayments(false)
+                            .acceptFrancMobileMoneyPayments(false)
+                            .allowSaveCardFeature(false)
+                            .onStagingEnv(false)
+                            .withTheme(R.style.MyCustomTheme)
+                            .initialize();
                 }else{
                     Toast.makeText(ReservationActivity.this, response.message(), Toast.LENGTH_LONG).show();
                 }
@@ -87,4 +118,6 @@ public class ReservationActivity extends AppCompatActivity {
             }
         });
     }
+
+
 }
