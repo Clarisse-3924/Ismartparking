@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterActivity"
-    android:background="@drawable/cars">
+    tools:context=".RegisterActivity">
 
     <LinearLayout
         android:orientation="vertical"
@@ -23,10 +22,10 @@
             android:hint="Username"
             android:nextFocusDown="@+id/passwordEditText"
             android:padding="10dp"
+            android:background="@color/white"
             android:layout_marginBottom="10dp"
-            android:textColor="@android:color/white"
-            android:textColorHint="@color/white"
             android:textSize="20sp" />
+
         <EditText
             android:id="@+id/fname"
             android:layout_width="match_parent"
@@ -35,9 +34,9 @@
             android:nextFocusDown="@+id/passwordEditText"
             android:padding="10dp"
             android:layout_marginBottom="10dp"
-            android:textColor="@android:color/white"
-            android:textColorHint="@color/white"
+            android:background="@color/white"
             android:textSize="20sp" />
+
         <EditText
             android:id="@+id/lname"
             android:layout_width="match_parent"
@@ -46,8 +45,7 @@
             android:nextFocusDown="@+id/passwordEditText"
             android:padding="10dp"
             android:layout_marginBottom="10dp"
-            android:textColor="@android:color/white"
-            android:textColorHint="@color/white"
+            android:background="@color/white"
             android:textSize="20sp" />
 
         <EditText
@@ -59,8 +57,7 @@
             android:nextFocusDown="@+id/passwordEditText"
             android:padding="10dp"
             android:layout_marginBottom="10dp"
-            android:textColor="@color/teal_200"
-            android:textColorHint="@color/white"
+            android:background="@color/white"
             android:textSize="20sp" />
 
         <Button
@@ -69,7 +66,7 @@
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:text="Sign up"
-            android:background="#00000000"
+            android:background="#3f221d"
             android:layout_marginTop="15dp"
             android:textSize="20sp"
             android:textColor="@color/white" />
@@ -78,7 +75,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textStyle="bold"
             android:textSize="15sp"
             android:text="Already have an account? Log in here!"
@@ -90,9 +87,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Create Account"
-        android:textColor="@color/white"
-        android:textSize="20dp"
+        android:text="Book your parking slot"
+        android:textColor="#3f221d"
+        android:textSize="30dp"
         android:textStyle="bold"
         android:layout_above="@+id/linearLayout"
         android:layout_centerHorizontal="true" />
