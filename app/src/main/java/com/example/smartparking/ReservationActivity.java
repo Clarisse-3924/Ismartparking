@@ -17,7 +17,9 @@ import androidx.fragment.app.DialogFragment;
 import com.example.smartparking.models.ReservationRequest;
 import com.example.smartparking.models.ReservationResponse;
 import com.example.smartparking.services.ApiClient;
+import com.flutterwave.raveandroid.RavePayActivity;
 import com.flutterwave.raveandroid.RaveUiManager;
+import com.flutterwave.raveandroid.rave_java_commons.RaveConstants;
 
 import java.sql.Time;
 import java.text.DateFormat;
@@ -145,5 +147,27 @@ public class ReservationActivity extends AppCompatActivity implements DatePicker
         String date =year + "-" + month + "-" + dayOfMonth;
         EditText entryDate = (EditText) findViewById(R.id.editTextEntryDate);
         entryDate.setText(date);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == RaveConstants.RAVE_REQUEST_CODE && data != null) {
+            String message = data.getStringExtra("response");
+            if (resultCode == RavePayActivity.RESULT_SUCCESS) {
+                Toast.makeText(this, "SUCCESS " + message, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(ReservationActivity.this, ThankYouActivity.class);
+                startActivity(intent);
+                finish();
+            }
+            else if (resultCode == RavePayActivity.RESULT_ERROR) {
+                Toast.makeText(this, "ERROR " + message, Toast.LENGTH_SHORT).show();
+            }
+            else if (resultCode == RavePayActivity.RESULT_CANCELLED) {
+                Toast.makeText(this, "CANCELLED " + message, Toast.LENGTH_SHORT).show();
+            }
+        }
+        else {
+            super.onActivityResult(requestCode, resultCode, data);
+        }
     }
 }
