@@ -36,7 +36,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ReservationActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
+public class ReservationActivity extends AppCompatActivity {
 
     @BindView(R.id.editTextEntryDate)
     EditText entryDate;
@@ -201,18 +201,6 @@ public class ReservationActivity extends AppCompatActivity implements DatePicker
                 Toast.makeText(ReservationActivity.this, "Booking unsuccessful"+ t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
             }
         });
-    }
-
-
-    @Override
-    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-        Calendar c = Calendar.getInstance();
-        c.set(Calendar.YEAR, year);
-        c.set(Calendar.MONTH, month);
-        c.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-        String date =year + "-" + month + "-" + dayOfMonth;
-        EditText entryDate = (EditText) findViewById(R.id.editTextEntryDate);
-        entryDate.setText(date);
     }
 
     @Override
