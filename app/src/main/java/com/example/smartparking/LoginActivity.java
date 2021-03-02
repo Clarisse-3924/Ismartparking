@@ -25,13 +25,10 @@ import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG ="Something" ;
-    @BindView(R.id.passwordLoginButton)
-    Button mPasswordLoginButton;
-    @BindView(R.id.emailEditText)
-    EditText mEmailEditText;
-    @BindView(R.id.passwordEditText) EditText mPasswordEditText;
-    @BindView(R.id.registerTextView)
-    TextView mRegisterTextView;
+    @BindView(R.id.passwordLoginButton) Button mPasswordLoginButton;
+    @BindView(R.id.username) EditText username;
+    @BindView(R.id.password) EditText mPassword;
+    @BindView(R.id.registerTextView) TextView mRegisterTextView;
 
     private ProgressDialog mAuthProgressDialog;
     @Override
@@ -56,7 +53,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                intent.setFlags(intent.FLAG_ACTIVITY_NEW_TASK | intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -78,25 +77,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             finish();
         }
         if (view == mPasswordLoginButton){
-            loginWithPassword();
         }
     }
 
-    private void loginWithPassword(){
-        String email = mEmailEditText.getText().toString().trim();
-        String password = mPasswordEditText.getText().toString().trim();
-        if(email.equals("")){
-            mEmailEditText.setError("Please Enter Your Email");
-            return;
-        }
-        if(password.equals("")){
-            mPasswordEditText.setError("Password cannot be blank");
-            return;
-        }
-
-    }
-
-    }
+}
 
 
 
