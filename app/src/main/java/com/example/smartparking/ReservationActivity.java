@@ -1,6 +1,7 @@
 package com.example.smartparking;
 
 import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,6 +10,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,7 +19,9 @@ import androidx.fragment.app.DialogFragment;
 import com.example.smartparking.models.ReservationRequest;
 import com.example.smartparking.models.ReservationResponse;
 import com.example.smartparking.services.ApiClient;
+import com.flutterwave.raveandroid.RavePayActivity;
 import com.flutterwave.raveandroid.RaveUiManager;
+import com.flutterwave.raveandroid.rave_java_commons.RaveConstants;
 
 import java.sql.Time;
 import java.text.DateFormat;
@@ -45,14 +49,32 @@ public class ReservationActivity extends AppCompatActivity implements DatePicker
     EditText location;
     @BindView(R.id.reservationButton)
     Button reservationButton;
-    @BindView(R.id.imageButton)
-    ImageButton imageButton;
+    private int mHour, mMinute;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reservation);
         ButterKnife.bind(this);
+
+        exitTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Calendar c = Calendar.getInstance();
+                mHour = c.get(Calendar.HOUR_OF_DAY);
+                mMinute = c.get(Calendar.MINUTE);
+                // Launch Time Picker Dialog
+                TimePickerDialog timePickerDialog = new TimePickerDialog(ReservationActivity.this,
+                        new TimePickerDialog.OnTimeSetListener() {
+                            @Override
+                            public void onTimeSet(TimePicker view, int hourOfDay,
+                                                  int minute) {
+                                exitTime.setText(hourOfDay + ":" + minute + ":" + 00);
+                            }
+                        }, mHour, mMinute, false);
+                timePickerDialog.show();
+            }
+        });
 
         reservationButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,13 +83,13 @@ public class ReservationActivity extends AppCompatActivity implements DatePicker
             }
         });
 
-        imageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DialogFragment datePicker = new DatePickerFragment();
-                datePicker.show(getSupportFragmentManager(), "date picker");
-            }
-        });
+//        imageButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                DialogFragment datePicker = new DatePickerFragment();
+//                datePicker.show(getSupportFragmentManager(), "date picker");
+//            }
+//        });
     }
 
     public ReservationRequest addReservation(){
@@ -145,5 +167,27 @@ public class ReservationActivity extends AppCompatActivity implements DatePicker
         String date =year + "-" + month + "-" + dayOfMonth;
         EditText entryDate = (EditText) findViewById(R.id.editTextEntryDate);
         entryDate.setText(date);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == RaveConstants.RAVE_REQUEST_CODE && data != null) {
+            String message = data.getStringExtra("response");
+            if (resultCode == RavePayActivity.RESULT_SUCCESS) {
+                Toast.makeText(this, "SUCCESS " + message, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(ReservationActivity.this, ThankYouActivity.class);
+                startActivity(intent);
+                finish();
+            }
+            else if (resultCode == RavePayActivity.RESULT_ERROR) {
+                Toast.makeText(this, "ERROR " + message, Toast.LENGTH_SHORT).show();
+            }
+            else if (resultCode == RavePayActivity.RESULT_CANCELLED) {
+                Toast.makeText(this, "CANCELLED " + message, Toast.LENGTH_SHORT).show();
+            }
+        }
+        else {
+            super.onActivityResult(requestCode, resultCode, data);
+        }
     }
 }
