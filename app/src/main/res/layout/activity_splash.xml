@@ -4,19 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/imgpark"
     tools:context=".Splash">
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="260dp"
+        android:layout_width="200dp"
         android:layout_height="200dp"
+        android:alpha=".25"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="60dp"
         android:layout_marginTop="50dp"
         android:layout_marginRight="50dp"
-        android:background="@drawable/ic_action_name">
-
-    </ImageView>
+        android:background="@drawable/ic_action_name"/>
 
     <TextView
         android:id="@+id/textView"
@@ -25,11 +25,13 @@
         android:layout_below="@+id/imageView2"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="44dp"
-        android:fontFamily="sans-serif-condensed"
+        android:layout_marginTop="87dp"
+        android:fontFamily="serif"
+        android:gravity="center_horizontal"
         android:text="Welcome to Smart Parking"
-        android:textColor="@color/black"
-        android:textSize="30dp"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="35dp"
         android:textStyle="bold|italic" />
 
     <Button
@@ -39,12 +41,12 @@
         android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="60dp"
-        android:layout_marginTop="131dp"
+        android:layout_marginTop="73dp"
         android:background="#028C8484"
+        android:fontFamily="sans-serif"
         android:padding="10dp"
         android:text="Start"
-        android:textColor="@color/black"
-        android:fontFamily="sans-serif"
+        android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold" />
 
