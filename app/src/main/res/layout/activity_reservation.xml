@@ -50,7 +50,9 @@
             android:hint="Entry time"
             android:layout_marginBottom="10dp"
             android:textColor="@android:color/black"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            android:drawableEnd="@drawable/ic_time"
+            android:drawableRight="@drawable/ic_time"/>
 
 
         <EditText
@@ -63,7 +65,9 @@
             android:hint="Exit time"
             android:layout_marginBottom="10dp"
             android:textColor="@android:color/black"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            android:drawableEnd="@drawable/ic_time"
+            android:drawableRight="@drawable/ic_time"/>
 
         <EditText
             android:id="@+id/editTextLocation"
