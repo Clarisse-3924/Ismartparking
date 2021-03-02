@@ -105,8 +105,13 @@ public class MainActivity extends AppCompatActivity {
 //                TextView full= convertView.findViewById(R.id.full);
 //                TextView success= convertView.findViewById(R.id.success);
                 TextView slot= convertView.findViewById(R.id.slot);
-
-
+                Button button2 =convertView.findViewById(R.id.button2);
+                button2.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(new Intent(MainActivity.this,ReservationActivity.class));
+                    }
+                });
                location.setText( "Location"+" "+imageResponseList.get(position).getLocation());
 //                full.setText("Is it full?"+" "+imageResponseList.get(position).getIs_block_full());
 //                success.setText(" Is it accessible?"+" "+imageResponseList.get(position).getIs_accessible());
