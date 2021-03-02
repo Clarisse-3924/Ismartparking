@@ -3,6 +3,7 @@ package com.example.smartparking;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.widget.ImageButton;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 
@@ -25,6 +27,7 @@ import com.flutterwave.raveandroid.rave_java_commons.RaveConstants;
 
 import java.sql.Time;
 import java.text.DateFormat;
+import java.time.Duration;
 import java.util.Calendar;
 
 import butterknife.BindView;
@@ -49,13 +52,60 @@ public class ReservationActivity extends AppCompatActivity implements DatePicker
     EditText location;
     @BindView(R.id.reservationButton)
     Button reservationButton;
-    private int mHour, mMinute;
+    private int mHour, mMinute,mSecond,mYear, mMonth, mDay;
 
+    Time diff;
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reservation);
         ButterKnife.bind(this);
+
+        entryDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Calendar c = Calendar.getInstance();
+                mYear = c.get(Calendar.YEAR);
+                mMonth = c.get(Calendar.MONTH);
+                mDay = c.get(Calendar.DAY_OF_MONTH);
+
+
+                DatePickerDialog datePickerDialog = new DatePickerDialog(ReservationActivity.this,
+                        new DatePickerDialog.OnDateSetListener() {
+
+                            @Override
+                            public void onDateSet(DatePicker view, int year,
+                                                  int monthOfYear, int dayOfMonth) {
+
+                                entryDate.setText(year+ "-"+(monthOfYear + 1)+"-"+dayOfMonth);
+
+                            }
+                        }, mYear, mMonth, mDay);
+                datePickerDialog.show();
+            }
+        });
+
+        entryTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Calendar c = Calendar.getInstance();
+                mHour = c.get(Calendar.HOUR_OF_DAY);
+                mMinute = c.get(Calendar.MINUTE);
+                mSecond=c.get(Calendar.SECOND);
+                // Launch Time Picker Dialog
+                TimePickerDialog timePickerDialog = new TimePickerDialog(ReservationActivity.this,
+                        new TimePickerDialog.OnTimeSetListener() {
+                            @Override
+                            public void onTimeSet(TimePicker view, int hourOfDay,
+                                                  int minute) {
+                                entryTime.setText(hourOfDay + ":" + minute + ":" + mSecond);
+                            }
+                        }, mHour, mMinute, false);
+                timePickerDialog.show();
+            }
+        });
 
         exitTime.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,18 +113,20 @@ public class ReservationActivity extends AppCompatActivity implements DatePicker
                 final Calendar c = Calendar.getInstance();
                 mHour = c.get(Calendar.HOUR_OF_DAY);
                 mMinute = c.get(Calendar.MINUTE);
+                mSecond=c.get(Calendar.SECOND);
                 // Launch Time Picker Dialog
                 TimePickerDialog timePickerDialog = new TimePickerDialog(ReservationActivity.this,
                         new TimePickerDialog.OnTimeSetListener() {
                             @Override
                             public void onTimeSet(TimePicker view, int hourOfDay,
                                                   int minute) {
-                                exitTime.setText(hourOfDay + ":" + minute + ":" + 00);
+                                exitTime.setText(hourOfDay + ":" + minute + ":" + mSecond);
                             }
                         }, mHour, mMinute, false);
                 timePickerDialog.show();
             }
         });
+
 
         reservationButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,13 +135,7 @@ public class ReservationActivity extends AppCompatActivity implements DatePicker
             }
         });
 
-//        imageButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                DialogFragment datePicker = new DatePickerFragment();
-//                datePicker.show(getSupportFragmentManager(), "date picker");
-//            }
-//        });
+
     }
 
     public ReservationRequest addReservation(){
