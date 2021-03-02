@@ -28,6 +28,11 @@ public class ApiClient {
         ApiInterface apiInterface = getRetrofit().create(ApiInterface.class);
         return apiInterface;
     }
+    public static LocationInterface getInterfac(){
+        LocationInterface location = getRetrofit().create(LocationInterface.class);
+        return location;
+    }
+
 
     public static RegisterService getRegisterService(){
         RegisterService registerService = getRetrofit().create(RegisterService.class);
