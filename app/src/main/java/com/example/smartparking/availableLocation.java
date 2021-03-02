@@ -15,7 +15,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.example.smartparking.models.LocationResponse;
 import com.example.smartparking.services.ApiClient;
 
@@ -101,6 +100,14 @@ public class availableLocation extends AppCompatActivity {
 
 
                 name.setText(locationlist.get(position).getName());
+
+                name.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent=new Intent(availableLocation.this,MainActivity.class);
+                        startActivity(intent);
+                    }
+                });
 
 //              Glide.with(context).load(locationlist.get(position).getLocation_pic()).into(imageView);
             }

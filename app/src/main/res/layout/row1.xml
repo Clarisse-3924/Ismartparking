@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:text="Block"
             android:textColor="#3f221d"
-            android:layout_marginTop="30dp"/>
+            android:layout_marginTop="20dp"/>
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

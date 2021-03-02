@@ -55,6 +55,7 @@ public class ReservationActivity extends AppCompatActivity implements DatePicker
     private int mHour, mMinute,mSecond,mYear, mMonth, mDay;
 
     Time diff;
+    String format;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -63,15 +64,14 @@ public class ReservationActivity extends AppCompatActivity implements DatePicker
         setContentView(R.layout.activity_reservation);
         ButterKnife.bind(this);
 
+        final Calendar c = Calendar.getInstance();
+        mYear = c.get(Calendar.YEAR);
+        mMonth = c.get(Calendar.MONTH);
+        mDay = c.get(Calendar.DAY_OF_MONTH);
+
         entryDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final Calendar c = Calendar.getInstance();
-                mYear = c.get(Calendar.YEAR);
-                mMonth = c.get(Calendar.MONTH);
-                mDay = c.get(Calendar.DAY_OF_MONTH);
-
-
                 DatePickerDialog datePickerDialog = new DatePickerDialog(ReservationActivity.this,
                         new DatePickerDialog.OnDateSetListener() {
 
@@ -79,10 +79,13 @@ public class ReservationActivity extends AppCompatActivity implements DatePicker
                             public void onDateSet(DatePicker view, int year,
                                                   int monthOfYear, int dayOfMonth) {
 
-                                entryDate.setText(year+ "-"+(monthOfYear + 1)+"-"+dayOfMonth);
+                                String sDate=year+ "-"+(monthOfYear + 1)+"-"+dayOfMonth;
+                                entryDate.setText(sDate);
+                                //entryDate.setText(year+ "-"+(monthOfYear + 1)+"-"+dayOfMonth);
 
                             }
                         }, mYear, mMonth, mDay);
+                datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis()-1000);
                 datePickerDialog.show();
             }
         });
@@ -100,7 +103,36 @@ public class ReservationActivity extends AppCompatActivity implements DatePicker
                             @Override
                             public void onTimeSet(TimePicker view, int hourOfDay,
                                                   int minute) {
-                                entryTime.setText(hourOfDay + ":" + minute + ":" + mSecond);
+                                if (hourOfDay == 0) {
+
+                                    hourOfDay += 12;
+
+                                    format = "AM";
+                                }
+                                else if (hourOfDay == 12) {
+
+                                    format = "PM";
+
+                                }
+                                else if (hourOfDay > 12) {
+
+                                    hourOfDay -= 12;
+
+                                    format = "PM";
+
+                                }
+                                else {
+
+                                    format = "AM";
+                                }
+
+                                if((hourOfDay <= (c.get(Calendar.HOUR_OF_DAY)))&&
+                                        (minute <= (c.get(Calendar.MINUTE)))){
+                                    Toast.makeText(ReservationActivity.this, "You can't pick a previous hour",
+                                            Toast.LENGTH_SHORT).show();
+                                }else {
+                                    entryTime.setText(hourOfDay + ":" + minute + ":" + mSecond);
+                                }
                             }
                         }, mHour, mMinute, false);
                 timePickerDialog.show();
@@ -120,6 +152,31 @@ public class ReservationActivity extends AppCompatActivity implements DatePicker
                             @Override
                             public void onTimeSet(TimePicker view, int hourOfDay,
                                                   int minute) {
+//                                exitTime.setText(hourOfDay + ":" + minute + ":" + mSecond);
+                                if (hourOfDay == 0) {
+
+                                    hourOfDay += 12;
+
+                                    format = "AM";
+                                }
+                                else if (hourOfDay == 12) {
+
+                                    format = "PM";
+
+                                }
+                                else if (hourOfDay > 12) {
+
+                                    hourOfDay -= 12;
+
+                                    format = "PM";
+
+                                }
+                                else {
+
+                                    format = "AM";
+                                }
+
+
                                 exitTime.setText(hourOfDay + ":" + minute + ":" + mSecond);
                             }
                         }, mHour, mMinute, false);
