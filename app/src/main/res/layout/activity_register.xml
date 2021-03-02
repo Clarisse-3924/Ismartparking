@@ -87,7 +87,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Book your parking slot"
+        android:text="Create Account"
         android:textColor="#3f221d"
         android:textSize="30dp"
         android:textStyle="bold"
