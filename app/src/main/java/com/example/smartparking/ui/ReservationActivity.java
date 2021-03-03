@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -36,6 +37,7 @@ public class ReservationActivity extends AppCompatActivity {
 
     @BindView(R.id.editTextEntryDate)
     EditText entryDate;
+
     @BindView(R.id.editTextExitTime)
     EditText exitTime;
     @BindView(R.id.editTextEntryTime)
@@ -45,7 +47,7 @@ public class ReservationActivity extends AppCompatActivity {
     @BindView(R.id.editTextDuration)
     EditText duration;
     @BindView(R.id.editTextLocation)
-    EditText location;
+    TextView location;
     @BindView(R.id.reservationButton)
     Button reservationButton;
     private int mHour, mMinute,mSecond,mYear, mMonth, mDay;
@@ -58,6 +60,7 @@ public class ReservationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reservation);
+
         ButterKnife.bind(this);
 
         final Calendar c = Calendar.getInstance();

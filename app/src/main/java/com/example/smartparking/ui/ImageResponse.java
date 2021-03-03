@@ -7,6 +7,10 @@ public class ImageResponse {
   private  String is_block_full;
   private String is_accessible;
     private String number_of_slots;
+    private String location_name;
+
+    public ImageResponse() {
+    }
 
     public String getBlock_code() {
         return block_code;
@@ -56,6 +60,11 @@ public class ImageResponse {
         this.number_of_slots = number_of_slots;
     }
 
-    public ImageResponse() {
+    public String getLocation_name() {
+        return location_name;
+    }
+
+    public void setLocation_name(String location_name) {
+        this.location_name = location_name;
     }
 }

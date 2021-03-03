@@ -68,7 +68,7 @@
             android:drawableEnd="@drawable/ic_time"
             android:drawableRight="@drawable/ic_time"/>
 
-        <EditText
+        <TextView
             android:id="@+id/editTextLocation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
