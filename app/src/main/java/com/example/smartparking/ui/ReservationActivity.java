@@ -184,7 +184,7 @@ public class ReservationActivity extends AppCompatActivity {
         reservationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                saveReservation(addReservation());
+                makePayment();
             }
         });
 
@@ -214,35 +214,6 @@ public class ReservationActivity extends AppCompatActivity {
 
                 if (response.isSuccessful()){
                     Toast.makeText(ReservationActivity.this, "Booking successful", Toast.LENGTH_LONG).show();
-
-                    new RaveUiManager(ReservationActivity.this).setAmount(100)
-                            .setCurrency("RWF")
-                            .setEmail("ubelyse1@gmail.com")
-                            .setfName("Belyse")
-                            .setlName("Uwambayinema")
-                            .setNarration("narration")
-                            .setPublicKey("FLWPUBK-153c54964b77d3382386e19706048494-X")
-                            .setEncryptionKey("1a59522dfb665a5bd9e0c0e2")
-                            .setTxRef("txRef")
-                            .setPhoneNumber("+250787905576", true)
-                            .acceptAccountPayments(false)
-                            .acceptCardPayments(true)
-                            .acceptMpesaPayments(false)
-                            .acceptAchPayments(false)
-                            .acceptGHMobileMoneyPayments(false)
-                            .acceptUgMobileMoneyPayments(false)
-                            .acceptZmMobileMoneyPayments(false)
-                            .acceptRwfMobileMoneyPayments(true)
-                            .acceptSaBankPayments(false)
-                            .acceptUkPayments(false)
-                            .acceptBankTransferPayments(false)
-                            .acceptUssdPayments(false)
-                            .acceptBarterPayments(false)
-                            .acceptFrancMobileMoneyPayments(false)
-                            .allowSaveCardFeature(false)
-                            .onStagingEnv(false)
-                            .withTheme(R.style.MyCustomTheme)
-                            .initialize();
                 }else{
                     Toast.makeText(ReservationActivity.this, response.message(), Toast.LENGTH_LONG).show();
                 }
@@ -256,12 +227,44 @@ public class ReservationActivity extends AppCompatActivity {
         });
     }
 
+    private void makePayment(){
+        new RaveUiManager(ReservationActivity.this).setAmount(100)
+                .setCurrency("RWF")
+                .setEmail("ubelyse1@gmail.com")
+                .setfName("Belyse")
+                .setlName("Uwambayinema")
+                .setNarration("narration")
+                .setPublicKey("FLWPUBK-153c54964b77d3382386e19706048494-X")
+                .setEncryptionKey("1a59522dfb665a5bd9e0c0e2")
+                .setTxRef("txRef")
+                .setPhoneNumber("+250787905576", true)
+                .acceptAccountPayments(false)
+                .acceptCardPayments(true)
+                .acceptMpesaPayments(false)
+                .acceptAchPayments(false)
+                .acceptGHMobileMoneyPayments(false)
+                .acceptUgMobileMoneyPayments(false)
+                .acceptZmMobileMoneyPayments(false)
+                .acceptRwfMobileMoneyPayments(true)
+                .acceptSaBankPayments(false)
+                .acceptUkPayments(false)
+                .acceptBankTransferPayments(false)
+                .acceptUssdPayments(false)
+                .acceptBarterPayments(false)
+                .acceptFrancMobileMoneyPayments(false)
+                .allowSaveCardFeature(false)
+                .onStagingEnv(false)
+                .withTheme(R.style.MyCustomTheme)
+                .initialize();
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == RaveConstants.RAVE_REQUEST_CODE && data != null) {
             String message = data.getStringExtra("response");
             if (resultCode == RavePayActivity.RESULT_SUCCESS) {
                 Toast.makeText(this, "PAYMENT RECEIVED SUCCESSFULLY ", Toast.LENGTH_SHORT).show();
+                saveReservation(addReservation());
                 Intent intent = new Intent(ReservationActivity.this, ThankYouActivity.class);
                 startActivity(intent);
 //                finish();
