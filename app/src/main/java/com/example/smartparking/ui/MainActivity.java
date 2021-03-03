@@ -1,4 +1,4 @@
-package com.example.smartparking;
+package com.example.smartparking.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,13 +14,12 @@ import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.smartparking.R;
 import com.example.smartparking.services.ApiClient;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -109,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
                 button2.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        startActivity(new Intent(MainActivity.this,ReservationActivity.class));
+                        startActivity(new Intent(MainActivity.this, ReservationActivity.class));
                     }
                 });
                location.setText( "Location"+" "+imageResponseList.get(position).getLocation());
