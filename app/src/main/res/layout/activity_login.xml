@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/andprking"
     tools:context=".ui.LoginActivity">
 
     <LinearLayout
@@ -20,22 +21,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:background="@color/white"
+            android:background="#028C8484"
             android:hint="Username"
+            android:textColorHint="@color/white"
             android:nextFocusDown="@+id/passwordEditText"
             android:padding="10dp"
-            android:textSize="20sp" />
+            android:textSize="22sp" />
 
         <EditText
             android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
+            android:background="#028C8484"
             android:hint="Password"
             android:inputType="textPassword"
             android:nextFocusDown="@+id/passwordEditText"
             android:padding="10dp"
-            android:textSize="20sp"
+            android:textColorHint="@color/white"
+            android:textSize="22sp"
             android:textStyle="bold" />
 
         <Button
@@ -43,11 +46,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:background="#3f221d"
             android:padding="10dp"
             android:text="Login"
+            android:background="#028C8484"
             android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:textSize="22sp" />
 
         <TextView
             android:id="@+id/registerTextView"
@@ -56,8 +59,8 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
             android:text="Don't have an account? Sign up here!"
-            android:textColor="@color/black"
-            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:textSize="22sp"
             android:textStyle="bold" />
 
 
@@ -67,8 +70,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Login"
-        android:textColor="#3f221d"
-        android:textSize="30dp"
+        android:textColor="@color/white"
+        android:textSize="32dp"
         android:textStyle="bold"
         android:layout_above="@+id/linearLayout"
         android:layout_centerHorizontal="true" />

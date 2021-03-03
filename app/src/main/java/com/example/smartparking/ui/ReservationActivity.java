@@ -42,12 +42,6 @@ public class ReservationActivity extends AppCompatActivity {
     EditText exitTime;
     @BindView(R.id.editTextEntryTime)
     EditText entryTime;
-    @BindView(R.id.plateNumberEditText)
-    EditText plateNumber;
-    @BindView(R.id.editTextDuration)
-    EditText duration;
-    @BindView(R.id.editTextLocation)
-    TextView location;
     @BindView(R.id.reservationButton)
     Button reservationButton;
     private int mHour, mMinute,mSecond,mYear, mMonth, mDay;
@@ -201,9 +195,8 @@ public class ReservationActivity extends AppCompatActivity {
         reservationRequest.setBooking_date(entryDate.getText().toString());
         reservationRequest.setEntry_time(entryTime.getText().toString());
         reservationRequest.setExit_time(exitTime.getText().toString());
-        reservationRequest.setPlate_No(Integer.parseInt(plateNumber.getText().toString()));
-        reservationRequest.setLocation(Integer.parseInt(location.getText().toString()));
-        reservationRequest.setDuration_in_minutes(Integer.parseInt(duration.getText().toString()));
+        reservationRequest.setPlate_No(1);
+        reservationRequest.setLocation(1);
 
         return reservationRequest;
     }
@@ -268,7 +261,7 @@ public class ReservationActivity extends AppCompatActivity {
             if (resultCode == RavePayActivity.RESULT_SUCCESS) {
                 Toast.makeText(this, "PAYMENT RECEIVED SUCCESSFULLY ", Toast.LENGTH_SHORT).show();
                 saveReservation(addReservation());
-                Intent intent = new Intent(ReservationActivity.this, ThankYouActivity.class);
+                Intent intent = new Intent(ReservationActivity.this, ContactUsActivity.class);
                 startActivity(intent);
 //                finish();
             }
