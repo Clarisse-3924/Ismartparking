@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/imgpark"
+    android:background="@drawable/iyinfi"
     tools:context=".ui.Splash">
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:alpha=".25"
+        android:alpha=".45"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="60dp"
         android:layout_marginTop="50dp"
@@ -25,7 +25,7 @@
         android:layout_below="@+id/imageView2"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="87dp"
+        android:layout_marginTop="64dp"
         android:fontFamily="serif"
         android:gravity="center_horizontal"
         android:text="Welcome to Smart Parking"
@@ -41,13 +41,13 @@
         android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="60dp"
-        android:layout_marginTop="73dp"
+        android:layout_marginTop="100dp"
         android:background="#028C8484"
-        android:fontFamily="sans-serif"
+        android:fontFamily="sans-serif-condensed"
         android:padding="10dp"
         android:text="Start"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="28sp"
         android:textStyle="bold" />
 
 </RelativeLayout>

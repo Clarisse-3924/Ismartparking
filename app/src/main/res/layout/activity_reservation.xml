@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/last"
     tools:context=".ui.ReservationActivity">
 
     <LinearLayout
@@ -14,28 +15,19 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:id="@+id/linearLayout">
-        <EditText
-            android:id="@+id/plateNumberEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/white"
-            android:hint="@string/your_car_s_plate_number"
-            android:padding="10dp"
-            android:layout_marginBottom="10dp"
-            android:textColor="@android:color/black"
-            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/editTextEntryDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/white"
+            android:background="#028C8484"
             android:inputType="date"
+            android:textColorHint="@color/white"
             android:padding="10dp"
             android:layout_marginBottom="10dp"
             android:hint="Booking date"
             android:textColor="@android:color/black"
-            android:textSize="20sp"
+            android:textSize="22sp"
             android:drawableEnd="@drawable/ic_calendar"
             android:drawableRight="@drawable/ic_calendar" />
 
@@ -43,13 +35,14 @@
             android:id="@+id/editTextEntryTime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
+            android:background="#028C8484"
             android:inputType="time"
             android:padding="10dp"
             android:hint="Entry time"
+            android:textColorHint="@color/white"
             android:layout_marginBottom="10dp"
             android:textColor="@android:color/black"
-            android:textSize="20sp"
+            android:textSize="22sp"
             android:drawableEnd="@drawable/ic_time"
             android:drawableRight="@drawable/ic_time"/>
 
@@ -58,39 +51,16 @@
             android:id="@+id/editTextExitTime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
+            android:background="#028C8484"
             android:inputType="time"
             android:padding="10dp"
+            android:textColorHint="@color/white"
             android:hint="Exit time"
             android:layout_marginBottom="10dp"
             android:textColor="@android:color/black"
-            android:textSize="20sp"
+            android:textSize="22sp"
             android:drawableEnd="@drawable/ic_time"
             android:drawableRight="@drawable/ic_time"/>
-
-        <TextView
-            android:id="@+id/editTextLocation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:inputType="number"
-            android:padding="10dp"
-            android:hint="Location"
-            android:layout_marginBottom="10dp"
-            android:textColor="@android:color/black"
-            android:textSize="20sp"/>
-
-        <EditText
-            android:id="@+id/editTextDuration"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:inputType="time"
-            android:padding="10dp"
-            android:hint="Time duration"
-            android:layout_marginBottom="10dp"
-            android:textColor="@android:color/black"
-            android:textSize="20sp"/>
 
         <Button
             android:id="@+id/reservationButton"
@@ -99,7 +69,8 @@
             android:padding="10dp"
             android:textColor="@color/white"
             android:text="Book slot"
-            android:background="#3f221d"
+            android:textSize="22sp"
+            android:background="#028C8484"
             android:layout_marginTop="15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -111,7 +82,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Book your parking slot"
-        android:textColor="#3f221d"
+        android:textColor="@color/white"
         android:textSize="30dp"
         android:textStyle="bold"
         android:layout_above="@+id/linearLayout"
