@@ -43,4 +43,8 @@ public class ApiClient {
         ReservationService reservationService = getRetrofit().create(ReservationService.class);
         return reservationService;
     }
+    public static LoginService getLogin(){
+        LoginService loginService = getRetrofit().create(LoginService.class);
+        return loginService;
+    }
 }
