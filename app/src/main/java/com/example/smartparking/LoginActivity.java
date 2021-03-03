@@ -24,13 +24,10 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
-    private static final String TAG ="Something" ;
     @BindView(R.id.passwordLoginButton) Button mPasswordLoginButton;
     @BindView(R.id.username) EditText username;
     @BindView(R.id.password) EditText mPassword;
     @BindView(R.id.registerTextView) TextView mRegisterTextView;
-
-    private ProgressDialog mAuthProgressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,49 +35,44 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         ButterKnife.bind(this);
         mRegisterTextView.setOnClickListener(this);
         mPasswordLoginButton.setOnClickListener(this);
-        createAuthProgressDialog();
-
-
-
-        mPasswordLoginButton .setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
-        mRegisterTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
-                intent.setFlags(intent.FLAG_ACTIVITY_NEW_TASK | intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(intent);
-                finish();
-            }
-        });
-
     }
-
-
-    private void createAuthProgressDialog(){
-        mAuthProgressDialog = new ProgressDialog(this);
-        mAuthProgressDialog.setTitle("Loading...");
-        mAuthProgressDialog.setMessage("Authenticating with Firebase...");
-        mAuthProgressDialog.setCancelable(false);
-    }
-
     @Override
-    public void onClick(View view){
-        if(view == mRegisterTextView){
+    public void onClick(View view) {
+        if (view == mRegisterTextView) {
             Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+            intent.setFlags(intent.FLAG_ACTIVITY_NEW_TASK | intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
             finish();
         }
-        if (view == mPasswordLoginButton){
+        if (view == mPasswordLoginButton) {
+            intoUser(loginUser());
         }
     }
-
+    public LoginRequest loginUser(){
+        LoginRequest loginRequest = new LoginRequest();
+        loginRequest.setUsername(username.getText().toString());
+        loginRequest.setPassword(mPassword.getText().toString());
+        return loginRequest;
+    }
+    public void intoUser(LoginRequest loginRequest){
+        Call<LoginResponse> loginResponseCall = ApiClient.getLogin().loginUser(loginRequest);
+        loginResponseCall.enqueue(new Callback<LoginResponse>() {
+            @Override
+            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+                if (response.isSuccessful()){
+                    Toast.makeText(LoginActivity.this, "Login successful", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    intent.setFlags(intent.FLAG_ACTIVITY_NEW_TASK | intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
+                    finish();
+                }else{
+                    Toast.makeText(LoginActivity.this, response.message(), Toast.LENGTH_LONG).show();
+                }
+            }
+            @Override
+            public void onFailure(Call<LoginResponse> call, Throwable t) {
+                Toast.makeText(LoginActivity.this, "Login unsuccessful"+ t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
+    }
 }
-
-
-
