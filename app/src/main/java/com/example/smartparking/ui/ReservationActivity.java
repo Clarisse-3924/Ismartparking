@@ -118,14 +118,8 @@ public class ReservationActivity extends AppCompatActivity {
 
                                     format = "AM";
                                 }
-
-                                if((hourOfDay <= (c.get(Calendar.HOUR_OF_DAY)))&&
-                                        (minute <= (c.get(Calendar.MINUTE)))){
-                                    Toast.makeText(ReservationActivity.this, "You can't pick a previous hour",
-                                            Toast.LENGTH_SHORT).show();
-                                }else {
                                     entryTime.setText(hourOfDay + ":" + minute + ":" + mSecond);
-                                }
+
                             }
                         }, mHour, mMinute, false);
                 timePickerDialog.show();
@@ -145,7 +139,7 @@ public class ReservationActivity extends AppCompatActivity {
                             @Override
                             public void onTimeSet(TimePicker view, int hourOfDay,
                                                   int minute) {
-//                                exitTime.setText(hourOfDay + ":" + minute + ":" + mSecond);
+
                                 if (hourOfDay == 0) {
 
                                     hourOfDay += 12;
@@ -169,7 +163,6 @@ public class ReservationActivity extends AppCompatActivity {
                                     format = "AM";
                                 }
 
-
                                 exitTime.setText(hourOfDay + ":" + minute + ":" + mSecond);
                             }
                         }, mHour, mMinute, false);
@@ -181,7 +174,7 @@ public class ReservationActivity extends AppCompatActivity {
         reservationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                makePayment();
+                saveReservation(addReservation());
             }
         });
 
@@ -195,81 +188,72 @@ public class ReservationActivity extends AppCompatActivity {
         reservationRequest.setBooking_date(entryDate.getText().toString());
         reservationRequest.setEntry_time(entryTime.getText().toString());
         reservationRequest.setExit_time(exitTime.getText().toString());
-        reservationRequest.setPlate_No(1);
+        reservationRequest.setPlate_No(7);
         reservationRequest.setLocation(1);
-
         return reservationRequest;
     }
-
     public void saveReservation(ReservationRequest reservationRequest){
-
         Call<ReservationResponse> reservationResponseCall = ApiClient.getReservationService().saveReservation(reservationRequest);
         reservationResponseCall.enqueue(new Callback<ReservationResponse>() {
             @Override
             public void onResponse(Call<ReservationResponse> call, Response<ReservationResponse> response) {
-
                 if (response.isSuccessful()){
                     Toast.makeText(ReservationActivity.this, "Booking successful", Toast.LENGTH_LONG).show();
+                    new RaveUiManager(ReservationActivity.this).setAmount(100)
+                            .setCurrency("RWF")
+                            .setEmail("ubelyse1@gmail.com")
+                            .setfName("Belyse")
+                            .setlName("Uwambayinema")
+                            .setNarration("narration")
+                            .setPublicKey("FLWPUBK-153c54964b77d3382386e19706048494-X")
+                            .setEncryptionKey("1a59522dfb665a5bd9e0c0e2")
+                            .setTxRef("txRef")
+                            .setPhoneNumber("+250787905576", true)
+                            .acceptAccountPayments(false)
+                            .acceptCardPayments(true)
+                            .acceptMpesaPayments(false)
+                            .acceptAchPayments(false)
+                            .acceptGHMobileMoneyPayments(false)
+                            .acceptUgMobileMoneyPayments(false)
+                            .acceptZmMobileMoneyPayments(false)
+                            .acceptRwfMobileMoneyPayments(true)
+                            .acceptSaBankPayments(false)
+                            .acceptUkPayments(false)
+                            .acceptBankTransferPayments(false)
+                            .acceptUssdPayments(false)
+                            .acceptBarterPayments(false)
+                            .acceptFrancMobileMoneyPayments(false)
+                            .allowSaveCardFeature(false)
+                            .onStagingEnv(false)
+                            .withTheme(R.style.MyCustomTheme)
+                            .initialize();
                 }else{
                     Toast.makeText(ReservationActivity.this, response.message(), Toast.LENGTH_LONG).show();
                 }
             }
-
             @Override
             public void onFailure(Call<ReservationResponse> call, Throwable t) {
-
                 Toast.makeText(ReservationActivity.this, "Booking unsuccessful"+ t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
             }
         });
     }
 
-    private void makePayment(){
-        new RaveUiManager(ReservationActivity.this).setAmount(100)
-                .setCurrency("RWF")
-                .setEmail("ubelyse1@gmail.com")
-                .setfName("Belyse")
-                .setlName("Uwambayinema")
-                .setNarration("narration")
-                .setPublicKey("FLWPUBK-153c54964b77d3382386e19706048494-X")
-                .setEncryptionKey("1a59522dfb665a5bd9e0c0e2")
-                .setTxRef("txRef")
-                .setPhoneNumber("+250787905576", true)
-                .acceptAccountPayments(false)
-                .acceptCardPayments(true)
-                .acceptMpesaPayments(false)
-                .acceptAchPayments(false)
-                .acceptGHMobileMoneyPayments(false)
-                .acceptUgMobileMoneyPayments(false)
-                .acceptZmMobileMoneyPayments(false)
-                .acceptRwfMobileMoneyPayments(true)
-                .acceptSaBankPayments(false)
-                .acceptUkPayments(false)
-                .acceptBankTransferPayments(false)
-                .acceptUssdPayments(false)
-                .acceptBarterPayments(false)
-                .acceptFrancMobileMoneyPayments(false)
-                .allowSaveCardFeature(false)
-                .onStagingEnv(false)
-                .withTheme(R.style.MyCustomTheme)
-                .initialize();
-    }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        /*
+         *  We advise you to do a further verification of transaction's details on your server to be
+         *  sure everything checks out before providing service or goods.
+         */
         if (requestCode == RaveConstants.RAVE_REQUEST_CODE && data != null) {
             String message = data.getStringExtra("response");
             if (resultCode == RavePayActivity.RESULT_SUCCESS) {
-                Toast.makeText(this, "PAYMENT RECEIVED SUCCESSFULLY ", Toast.LENGTH_SHORT).show();
-                saveReservation(addReservation());
-                Intent intent = new Intent(ReservationActivity.this, ContactUsActivity.class);
-                startActivity(intent);
-//                finish();
+                Toast.makeText(this, "SUCCESS " + message, Toast.LENGTH_SHORT).show();
             }
             else if (resultCode == RavePayActivity.RESULT_ERROR) {
-                Toast.makeText(this, "ERROR ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "ERROR " + message, Toast.LENGTH_SHORT).show();
             }
             else if (resultCode == RavePayActivity.RESULT_CANCELLED) {
-                Toast.makeText(this, "CANCELLED ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "CANCELLED " + message, Toast.LENGTH_SHORT).show();
             }
         }
         else {

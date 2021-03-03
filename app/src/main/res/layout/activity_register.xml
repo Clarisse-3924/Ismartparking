@@ -25,6 +25,7 @@
             android:padding="10dp"
             android:background="#028C8484"
             android:textColorHint="@color/white"
+            android:textColor="@color/white"
             android:layout_marginBottom="10dp"
             android:textSize="22sp" />
 
@@ -38,6 +39,7 @@
             android:layout_marginBottom="10dp"
             android:background="#028C8484"
             android:textColorHint="@color/white"
+            android:textColor="@color/white"
             android:textSize="22sp" />
 
         <EditText
@@ -48,6 +50,7 @@
             android:nextFocusDown="@+id/passwordEditText"
             android:padding="10dp"
             android:textColorHint="@color/white"
+            android:textColor="@color/white"
             android:layout_marginBottom="10dp"
             android:background="#028C8484"
             android:textSize="22sp" />
@@ -63,6 +66,7 @@
             android:layout_marginBottom="10dp"
             android:background="#028C8484"
             android:textColorHint="@color/white"
+            android:textColor="@color/white"
             android:textSize="22sp" />
 
         <Button
