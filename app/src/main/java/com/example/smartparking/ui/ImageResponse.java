@@ -1,4 +1,4 @@
-package com.example.smartparking;
+package com.example.smartparking.ui;
 
 public class ImageResponse {
     private String block_code;

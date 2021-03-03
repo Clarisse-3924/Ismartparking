@@ -1,4 +1,4 @@
-package com.example.smartparking;
+package com.example.smartparking.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,12 +9,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.GridView;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.smartparking.R;
 import com.example.smartparking.models.LocationResponse;
 import com.example.smartparking.services.ApiClient;
 
@@ -104,7 +103,7 @@ public class availableLocation extends AppCompatActivity {
                 name.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent=new Intent(availableLocation.this,MainActivity.class);
+                        Intent intent=new Intent(availableLocation.this, MainActivity.class);
                         startActivity(intent);
                     }
                 });

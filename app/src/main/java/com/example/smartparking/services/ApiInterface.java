@@ -1,6 +1,6 @@
 package com.example.smartparking.services;
 
-import com.example.smartparking.ImageResponse;
+import com.example.smartparking.ui.ImageResponse;
 
 import java.util.List;
 

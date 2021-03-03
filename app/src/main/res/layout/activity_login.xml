@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="LoginActivity">
+    tools:context=".ui.LoginActivity">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -52,7 +52,7 @@
         <TextView
             android:id="@+id/registerTextView"
             android:layout_width="wrap_content"
-            android:layout_height="79dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
             android:text="Don't have an account? Sign up here!"
@@ -66,7 +66,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Book your parking slot"
+        android:text="Login"
         android:textColor="#3f221d"
         android:textSize="30dp"
         android:textStyle="bold"

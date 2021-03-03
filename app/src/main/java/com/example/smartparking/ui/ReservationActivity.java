@@ -1,23 +1,21 @@
-package com.example.smartparking;
+package com.example.smartparking.ui;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.DialogFragment;
 
+import com.example.smartparking.R;
 import com.example.smartparking.models.ReservationRequest;
 import com.example.smartparking.models.ReservationResponse;
 import com.example.smartparking.services.ApiClient;
@@ -26,8 +24,6 @@ import com.flutterwave.raveandroid.RaveUiManager;
 import com.flutterwave.raveandroid.rave_java_commons.RaveConstants;
 
 import java.sql.Time;
-import java.text.DateFormat;
-import java.time.Duration;
 import java.util.Calendar;
 
 import butterknife.BindView;

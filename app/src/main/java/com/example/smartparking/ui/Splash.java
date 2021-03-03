@@ -1,4 +1,4 @@
-package com.example.smartparking;
+package com.example.smartparking.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,12 +9,12 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
+
+import com.example.smartparking.R;
 
 public class Splash extends AppCompatActivity {
 Button sub;
 ImageView imageView2;
-TextView textView;
 Animation frombottom,fromtop;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,12 +25,11 @@ Animation frombottom,fromtop;
         frombottom= AnimationUtils.loadAnimation(this,R.anim.frobottom);
         fromtop= AnimationUtils.loadAnimation(this,R.anim.fromtop);
      sub.setAnimation(frombottom);
-//        textView.setAnimation(fromtop);
      imageView2.setAnimation(fromtop);
      sub.setOnClickListener(new View.OnClickListener() {
          @Override
          public void onClick(View v) {
-             startActivity(new Intent(Splash.this,RegisterActivity.class));
+             startActivity(new Intent(Splash.this, LoginActivity.class));
          }
      });
     }
