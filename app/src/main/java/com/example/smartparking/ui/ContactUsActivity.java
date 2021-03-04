@@ -11,15 +11,19 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.smartparking.R;
 
 public class ContactUsActivity extends AppCompatActivity {
     private Button email,sms,call;
+    private TextView txt,thanku;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_thank_you);
+        txt=findViewById(R.id.txt);
+        thanku=findViewById(R.id.thanku);
         email = findViewById(R.id.email);
         sms=findViewById(R.id.sms);
         call=findViewById(R.id.call);

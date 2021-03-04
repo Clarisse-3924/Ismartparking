@@ -248,6 +248,8 @@ public class ReservationActivity extends AppCompatActivity {
             String message = data.getStringExtra("response");
             if (resultCode == RavePayActivity.RESULT_SUCCESS) {
                 Toast.makeText(this, "SUCCESS " + message, Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent(ReservationActivity.this,ContactUsActivity.class);
+                startActivity(intent);
             }
             else if (resultCode == RavePayActivity.RESULT_ERROR) {
                 Toast.makeText(this, "ERROR " + message, Toast.LENGTH_SHORT).show();
