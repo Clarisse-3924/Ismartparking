@@ -4,20 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/iyinfi"
+    android:background="@color/green"
     tools:context=".ui.Splash">
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:alpha=".45"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginRight="50dp"
-        android:background="@drawable/ic_action_name"/>
-
+        android:layout_marginTop="54dp"
+        android:src="@drawable/download"
+        android:scaleType="centerInside"
+        android:background="@drawable/image_border" />
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -25,7 +24,7 @@
         android:layout_below="@+id/imageView2"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="90dp"
         android:fontFamily="serif"
         android:gravity="center_horizontal"
         android:text="Welcome to Smart Parking"
@@ -33,21 +32,5 @@
         android:textColor="@color/white"
         android:textSize="35dp"
         android:textStyle="bold|italic" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="246dp"
-        android:layout_height="60dp"
-        android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="100dp"
-        android:background="#028C8484"
-        android:fontFamily="sans-serif-condensed"
-        android:padding="10dp"
-        android:text="Start"
-        android:textColor="@color/white"
-        android:textSize="28sp"
-        android:textStyle="bold" />
 
 </RelativeLayout>

@@ -7,8 +7,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,8 +30,13 @@ import retrofit2.Response;
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     @BindView(R.id.passwordLoginButton) Button mPasswordLoginButton;
     @BindView(R.id.username) EditText username;
+    @BindView(R.id.image1)
+    ImageView image;
+    @BindView(R.id.linearLayout)
+    LinearLayout linearLayout;
     @BindView(R.id.password) EditText mPassword;
     @BindView(R.id.registerTextView) TextView mRegisterTextView;
+    Animation topAnim, bottomAnim;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +44,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         ButterKnife.bind(this);
         mRegisterTextView.setOnClickListener(this);
         mPasswordLoginButton.setOnClickListener(this);
+        topAnim= AnimationUtils.loadAnimation(this,R.anim.top_animation);
+        bottomAnim= AnimationUtils.loadAnimation(this,R.anim.bottom_animation);
+        image.setAnimation(topAnim);
+        linearLayout.setAnimation(bottomAnim);
     }
     @Override
     public void onClick(View view) {

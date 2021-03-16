@@ -6,9 +6,13 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -35,20 +39,17 @@ import retrofit2.Response;
 
 public class ReservationActivity extends AppCompatActivity {
 
-    @BindView(R.id.editTextEntryDate)
-    EditText entryDate;
-
-    @BindView(R.id.editTextExitTime)
-    EditText exitTime;
-    @BindView(R.id.editTextEntryTime)
-    EditText entryTime;
-    @BindView(R.id.reservationButton)
-    Button reservationButton;
+    @BindView(R.id.editTextEntryDate) EditText entryDate;
+    @BindView(R.id.editTextExitTime) EditText exitTime;
+    @BindView(R.id.editTextEntryTime) EditText entryTime;
+    @BindView(R.id.reservationButton) Button reservationButton;
     private int mHour, mMinute,mSecond,mYear, mMonth, mDay;
-
-    Time diff;
     String format;
-
+    @BindView(R.id.image3)
+    ImageView image;
+    @BindView(R.id.linearLayout)
+    LinearLayout linearLayout;
+    Animation topAnim, bottomAnim;
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +57,10 @@ public class ReservationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_reservation);
 
         ButterKnife.bind(this);
-
+        topAnim= AnimationUtils.loadAnimation(this,R.anim.top_animation);
+        bottomAnim= AnimationUtils.loadAnimation(this,R.anim.bottom_animation);
+        image.setAnimation(topAnim);
+        linearLayout.setAnimation(bottomAnim);
         final Calendar c = Calendar.getInstance();
         mYear = c.get(Calendar.YEAR);
         mMonth = c.get(Calendar.MONTH);
