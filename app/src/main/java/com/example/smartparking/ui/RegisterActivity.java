@@ -7,8 +7,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,19 +30,17 @@ import retrofit2.Response;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener{
 
-    @BindView(R.id.createUserButton)
-    Button mCreateUserButton;
-    @BindView(R.id.username)
-    EditText username;
-    @BindView(R.id.lname)
-    EditText lname;
-    @BindView(R.id.fname)
-    EditText fname;
-    @BindView(R.id.passwordEditText)
-    EditText mPasswordEditText;
-    @BindView(R.id.loginTextView)
-    TextView mLoginTextView;
-
+    @BindView(R.id.createUserButton) Button mCreateUserButton;
+    @BindView(R.id.username) EditText username;
+    @BindView(R.id.lname) EditText lname;
+    @BindView(R.id.fname) EditText fname;
+    @BindView(R.id.passwordEditText) EditText mPasswordEditText;
+    @BindView(R.id.loginTextView) TextView mLoginTextView;
+    @BindView(R.id.image2)
+    ImageView image;
+    @BindView(R.id.linearLayout)
+    LinearLayout linearLayout;
+    Animation topAnim, bottomAnim;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +49,10 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         mLoginTextView.setOnClickListener(this);
         mCreateUserButton.setOnClickListener(this);
+        topAnim= AnimationUtils.loadAnimation(this,R.anim.top_animation);
+        bottomAnim= AnimationUtils.loadAnimation(this,R.anim.bottom_animation);
+        image.setAnimation(topAnim);
+        linearLayout.setAnimation(bottomAnim);
     }
 
     @Override
