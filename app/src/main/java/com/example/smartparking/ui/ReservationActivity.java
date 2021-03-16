@@ -205,8 +205,8 @@ public class ReservationActivity extends AppCompatActivity {
                             .setfName("Belyse")
                             .setlName("Uwambayinema")
                             .setNarration("narration")
-                            .setPublicKey("FLWPUBK-153c54964b77d3382386e19706048494-X")
-                            .setEncryptionKey("1a59522dfb665a5bd9e0c0e2")
+                            .setPublicKey("FLWPUBK_TEST-b731960372b6afd5d5d4dd2adcf5336d-X")
+                            .setEncryptionKey("FLWSECK_TESTd6b28b6e96b3")
                             .setTxRef("txRef")
                             .setPhoneNumber("+250787905576", true)
                             .acceptAccountPayments(false)
@@ -247,15 +247,15 @@ public class ReservationActivity extends AppCompatActivity {
         if (requestCode == RaveConstants.RAVE_REQUEST_CODE && data != null) {
             String message = data.getStringExtra("response");
             if (resultCode == RavePayActivity.RESULT_SUCCESS) {
-                Toast.makeText(this, "SUCCESS " + message, Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "SUCCESS " , Toast.LENGTH_SHORT).show();
                 Intent intent=new Intent(ReservationActivity.this,ContactUsActivity.class);
                 startActivity(intent);
             }
             else if (resultCode == RavePayActivity.RESULT_ERROR) {
-                Toast.makeText(this, "ERROR " + message, Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "ERROR " , Toast.LENGTH_SHORT).show();
             }
             else if (resultCode == RavePayActivity.RESULT_CANCELLED) {
-                Toast.makeText(this, "CANCELLED " + message, Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "CANCELLED " , Toast.LENGTH_SHORT).show();
             }
         }
         else {

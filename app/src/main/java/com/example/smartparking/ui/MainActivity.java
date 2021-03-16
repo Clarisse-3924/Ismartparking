@@ -21,7 +21,6 @@ import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.smartparking.MapsActivity;
 import com.example.smartparking.R;
 import com.example.smartparking.services.ApiClient;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -82,9 +81,9 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
 
 // Add a marker in Sydney and move the camera
         LatLng Kigali = new LatLng(-1.9294217, 29.9871581);
-        mMap.addMarker(new MarkerOptions().position(Kigali).title("KIGALI"));
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(Kigali, 1400));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(Kigali));
+        mMap.addMarker(new MarkerOptions().position(Kigali).title("Your Location"));
+        float zoomLevel = 12.0f; //This goes up to 21
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(Kigali, zoomLevel));
         locationListener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
