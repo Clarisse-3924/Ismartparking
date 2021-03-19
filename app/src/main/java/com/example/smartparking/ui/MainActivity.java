@@ -89,18 +89,13 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
             public void onLocationChanged(Location location) {
 
                 try {
-                    latLng = new LatLng(-1.9531, 30.0931);
-                    mMap.addMarker(new MarkerOptions().position(latLng).title("Kigali Heights Parking"));
+                    latLng = new LatLng(-1.945, 30.0561);
+                    mMap.addMarker(new MarkerOptions().position(latLng).title("Kigali DownTown Building"));
                     mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
 
                     latLng = new LatLng(-1.9555493, 30.1021022);
                     mMap.addMarker(new MarkerOptions().position(latLng).title("Auca"));
                     mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-
-
-
-
-
 
                 }
                 catch (SecurityException e){

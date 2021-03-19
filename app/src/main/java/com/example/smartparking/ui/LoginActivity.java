@@ -42,6 +42,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
+
         mRegisterTextView.setOnClickListener(this);
         mPasswordLoginButton.setOnClickListener(this);
         topAnim= AnimationUtils.loadAnimation(this,R.anim.top_animation);

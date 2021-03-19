@@ -202,12 +202,13 @@ public class ReservationActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<ReservationResponse> call, Response<ReservationResponse> response) {
                 if (response.isSuccessful()){
+
                     Toast.makeText(ReservationActivity.this, "Booking successful", Toast.LENGTH_LONG).show();
                     new RaveUiManager(ReservationActivity.this).setAmount(100)
                             .setCurrency("RWF")
-                            .setEmail("ubelyse1@gmail.com")
-                            .setfName("Belyse")
-                            .setlName("Uwambayinema")
+                            .setEmail("cuwizeyimana3924@gmail.com")
+                            .setfName("Clarisse")
+                            .setlName("Uwizeyimana")
                             .setNarration("narration")
                             .setPublicKey("FLWPUBK_TEST-b731960372b6afd5d5d4dd2adcf5336d-X")
                             .setEncryptionKey("FLWSECK_TESTd6b28b6e96b3")
