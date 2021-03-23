@@ -23,7 +23,16 @@ Information MIT license and Copyright@2020
 
 That is the contact in case you want to contact. Email: cuwizeyimana3924@gmail.com
 
-## Encript image
+## Available  near by parking on GPS OR as a list Page
 
 ![booking page](https://user-images.githubusercontent.com/71278856/112112444-37bb4900-8bbe-11eb-8bff-dc30f76fdfd6.png)
+
+## Booking page
+
+![slot](https://user-images.githubusercontent.com/71278856/112113546-9a611480-8bbf-11eb-8b24-b70190aac459.png)
+
+## Payment
+![payment](https://user-images.githubusercontent.com/71278856/112113638-bcf32d80-8bbf-11eb-9aa4-b8afafab7b2f.png)
+![payment1](https://user-images.githubusercontent.com/71278856/112113640-bcf32d80-8bbf-11eb-97ad-fd9dad03a5ba.png)
+![payment2](https://user-images.githubusercontent.com/71278856/112113704-d2685780-8bbf-11eb-9c9d-ada0ddba6765.png)
 
