@@ -11,7 +11,7 @@ Stella Marlyne Igihozo
 
 ## Description of project:
 
-This project allows users to book a slot for parking and it also shows them the available location of parking using GPS and you can view it as the list.
+This project allows users to book a slot for parking and it also shows them the available location of parking using GPS and you can view it as the list. After booking you are able to pay using either Mobile Money or Card
 ## project setup instructions:
 
 You have to open yur terminal(Ctrl+Alt+T) You have to clone this project by using this link https://github.com/Clarisse-3924/Ismartparking.git
