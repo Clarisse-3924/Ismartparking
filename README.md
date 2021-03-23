@@ -24,10 +24,5 @@ Information MIT license and Copyright@2020
 That is the contact in case you want to contact. Email: cuwizeyimana3924@gmail.com
 
 ## Encript image
-![encript](/home/clarisse/Pictures/booking page.png)
-## Decript image
-![decript](image/decript.png)
-## Encripttest image
-![encripttest](image/encripttest.png)
-## Out put image
-![output](image/output.png)
+!booking page (copy)](https://user-images.githubusercontent.com/71278856/112112080-bd8ac480-8bbd-11eb-9331-b73431419d8f.png)
+
